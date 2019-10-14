@@ -1,0 +1,28 @@
+{
+  "name": "image-hub",
+  "version": "1.0.0",
+  "description": "Image processing API service based on Sharp and nsfwjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yidinghan/image-hub.git"
+  },
+  "keywords": [
+    "sharp",
+    "nsfwjs",
+    "image"
+  ],
+  "author": "hanyiding",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yidinghan/image-hub/issues"
+  },
+  "homepage": "https://github.com/yidinghan/image-hub#readme",
+  "dependencies": {
+    "fastify": "^2.10.0",
+    "fastify-swagger": "^2.4.0"
+  }
+}
