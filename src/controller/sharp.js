@@ -7,6 +7,26 @@ const taskKindFns = {
   metadata: (pipeline) => {
     return pipeline.metadata();
   },
+  /**
+   * @param {import('sharp').Sharp} pipeline
+   */
+  jpeg: (pipeline, args) => {
+    return pipeline.jpeg(args);
+  },
+  /**
+   * @param {import('sharp').Sharp} pipeline
+   */
+  toBuffer: (pipeline, args) => {
+    return pipeline.toBuffer(args).then((result) => {
+      let data = result;
+      let info = undefined;
+      if ('info' in data) {
+        data = result.data;
+        info = result.info;
+      }
+      return { image: data.toString('base64'), info };
+    });
+  },
 };
 
 const root = async (request, reply) => {
@@ -47,11 +67,12 @@ const apis = {
                 kind: {
                   type: 'string',
                   desciption: '任务类型',
-                  enum: ['metadata'],
+                  enum: ['metadata', 'jpeg', 'toBuffer'],
                 },
                 args: {},
               },
             },
+            maxItems: 10,
           },
         },
       },
