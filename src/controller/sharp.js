@@ -58,8 +58,67 @@ const apis = {
               properties: {
                 kind: {
                   type: 'string',
-                  desciption: '任务类型',
-                  enum: ['metadata', 'jpeg', 'toBuffer'],
+                  desciption:
+                    '任务类型，具体作用请看官方文档，http://sharp.pixelplumbing.com/en/stable/api-constructor/',
+                  // 'body > div.wy-grid-for-nav > section > div > div > div:nth-child(2) > div > h2'
+                  // select to craw api fn
+                  enum: [
+                    'metadata',
+                    'stats',
+                    // Output
+                    'jpeg',
+                    'png',
+                    'webp',
+                    'tiff',
+                    'heif',
+                    'raw',
+                    'tile',
+                    'toFormat',
+                    'toBuffer',
+                    'toFile',
+                    // Resizing images
+                    'resize',
+                    'extend',
+                    'extract',
+                    'trim',
+                    // Compositing images
+                    'composite',
+                    // Image operations
+                    'rotate',
+                    'flip',
+                    'flop',
+                    'sharpen',
+                    'median',
+                    'blur',
+                    'flatten',
+                    'gamma',
+                    'negate',
+                    'normalise',
+                    'normalize',
+                    'convolve',
+                    'threshold',
+                    'boolean',
+                    'linear',
+                    'recomb',
+                    'modulate',
+                    // Colour manipulation
+                    'tint',
+                    'greyscale',
+                    'grayscale',
+                    'tocolourspace',
+                    'tocolorspace',
+                    // Channel manipulation
+                    'removealpha',
+                    'ensurealpha',
+                    'extractchannel',
+                    'joinchannel',
+                    'bandbool',
+                    // cache
+                    'cache',
+                    'concurrency',
+                    'counters',
+                    'simd',
+                  ],
                 },
                 args: {},
               },
