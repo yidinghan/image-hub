@@ -4,18 +4,6 @@ const taskKindFns = {
   /**
    * @param {import('sharp').Sharp} pipeline
    */
-  metadata: (pipeline) => {
-    return pipeline.metadata();
-  },
-  /**
-   * @param {import('sharp').Sharp} pipeline
-   */
-  jpeg: (pipeline, args) => {
-    return pipeline.jpeg(args);
-  },
-  /**
-   * @param {import('sharp').Sharp} pipeline
-   */
   toBuffer: (pipeline, args) => {
     return pipeline.toBuffer(args).then((result) => {
       let data = result;
@@ -34,12 +22,16 @@ const root = async (request, reply) => {
 
   let pipeline = sharp(Buffer.from(imageBase64, 'base64'));
   tasks.forEach(({ kind, args }) => {
-    pipeline = taskKindFns[kind](pipeline, args);
+    if (kind in taskKindFns) {
+      pipeline = taskKindFns[kind](pipeline, args);
+    } else if (kind in pipeline) {
+      pipeline = pipeline[kind](args);
+    }
   });
 
   if ('then' in pipeline) {
     // @ts-ignore
-    reply.send(await pipeline.then());
+    return reply.send(await pipeline.then());
   }
   reply.send(pipeline);
 };
