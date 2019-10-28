@@ -1,6 +1,6 @@
 {
   "name": "image-hub",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Image processing API service based on Sharp and nsfwjs",
   "main": "app.js",
   "scripts": {

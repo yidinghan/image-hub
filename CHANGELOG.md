@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/yidinghan/image-hub/compare/v1.1.0...v1.2.0) (2019-10-28)
+
+
+### Features
+
+* **app:** read listen port from env ([ee062a6](https://github.com/yidinghan/image-hub/commit/ee062a60aae3a1ea52542f2aa8ba8ced90778469))
+
 ## 1.1.0 (2019-10-28)
 
 
