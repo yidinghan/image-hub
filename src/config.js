@@ -24,7 +24,7 @@ module.exports = {
       },
       tags: [],
       // host: 'localhost:3000',
-      schemes: ['http'],
+      // schemes: ['http', 'https'],
       consumes: ['application/json'],
       produces: ['application/json'],
     },
