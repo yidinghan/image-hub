@@ -17,7 +17,7 @@ fastify.register(fastifySwagger, config.fastifySwagger);
 fastify.register(routes);
 
 if (!module.parent) {
-  fastify.listen(3000, '0.0.0.0', (err) => {
+  fastify.listen(Number(process.env.PORT) || 3000, '0.0.0.0', (err) => {
     if (err) {
       fastify.log.error(err);
       process.exit(1);
