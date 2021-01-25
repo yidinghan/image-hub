@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/yidinghan/image-hub/compare/v1.2.2...v1.3.0) (2021-01-25)
+
+
+### Features
+
+* **fastify:** request bodylimit to 10m ([c998804](https://github.com/yidinghan/image-hub/commit/c9988049a3601065cb6afd6e482584424ad8ca62))
+
 ### [1.2.2](https://github.com/yidinghan/image-hub/compare/v1.2.1...v1.2.2) (2021-01-18)
 
 ### [1.2.1](https://github.com/yidinghan/image-hub/compare/v1.2.0...v1.2.1) (2019-10-28)
