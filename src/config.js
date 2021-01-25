@@ -2,6 +2,8 @@ const pino = require('pino');
 
 module.exports = {
   fastify: {
+    // 10m
+    bodyLimit: 10485760,
     logger: {
       level: 'info',
       serializers: {
