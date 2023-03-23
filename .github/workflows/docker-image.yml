@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - "master"
-    tags:
-      - '*'
 
 jobs:
   docker:
@@ -33,4 +31,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: playdingnow/imagehub:${{ vars.GITHUB_REF_NAME }}
+          tags: playdingnow/imagehub:master
