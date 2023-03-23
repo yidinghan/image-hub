@@ -1,10 +1,12 @@
-FROM node:12.13.0-slim as build
+FROM node:18.14.2 as build
 
 COPY package*.json /app/
 RUN cd /app && \
-  npm i --verbose
+  apt-get update -y && \
+  apt-get install build-essential libvips-dev -y && \
+  npm i --verbose --production
 
-FROM node:12.13.0-slim
+FROM node:18.14.2-slim
 WORKDIR /app
 COPY . /app
 COPY --from=build /app/node_modules /app/node_modules
