@@ -33,4 +33,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: playdingnow/imagehub:${{ env.GITHUB_REF_NAME }}
+          tags: playdingnow/imagehub:${{ vars.GITHUB_REF_NAME }}
