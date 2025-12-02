@@ -20,20 +20,26 @@ const taskKindFns = {
 const root = async (request, reply) => {
   const { image: imageBase64, tasks } = request.body;
 
-  let pipeline = sharp(Buffer.from(imageBase64, 'base64'));
-  tasks.forEach(({ kind, args }) => {
-    if (kind in taskKindFns) {
-      pipeline = taskKindFns[kind](pipeline, args);
-    } else if (kind in pipeline) {
-      pipeline = pipeline[kind](args);
-    }
-  });
+  const sharpInstance = sharp(Buffer.from(imageBase64, 'base64'));
+  let pipeline = sharpInstance;
+  try {
+    tasks.forEach(({ kind, args }) => {
+      if (kind in taskKindFns) {
+        pipeline = taskKindFns[kind](pipeline, args);
+      } else if (kind in pipeline) {
+        pipeline = pipeline[kind](args);
+      }
+    });
 
-  if ('then' in pipeline) {
-    // @ts-ignore
-    return reply.send(await pipeline.then());
+    if ('then' in pipeline) {
+      // @ts-ignore
+      return reply.send(await pipeline.then());
+    }
+    reply.send(pipeline);
+  } finally {
+    // Destroy the Sharp instance to release native memory and prevent memory leaks
+    sharpInstance.destroy();
   }
-  reply.send(pipeline);
 };
 
 const apis = {
