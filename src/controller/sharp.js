@@ -40,7 +40,7 @@ const root = async (request, reply) => {
     // Destroy the Sharp instance to release native memory and prevent memory leaks
     try {
       sharpInstance.destroy();
-    } catch {
+    } catch (_) {
       // Ignore destroy errors to avoid masking the original error
     }
   }
