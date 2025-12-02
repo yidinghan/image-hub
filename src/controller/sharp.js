@@ -38,7 +38,11 @@ const root = async (request, reply) => {
     reply.send(pipeline);
   } finally {
     // Destroy the Sharp instance to release native memory and prevent memory leaks
-    sharpInstance.destroy();
+    try {
+      sharpInstance.destroy();
+    } catch {
+      // Ignore destroy errors to avoid masking the original error
+    }
   }
 };
 
