@@ -1,4 +1,4 @@
-FROM node:18.14.2 as build
+FROM node:24.13.0 AS build
 
 WORKDIR /app
 COPY --chown=node:node . /app
