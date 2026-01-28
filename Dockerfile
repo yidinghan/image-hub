@@ -8,9 +8,7 @@ RUN apk add --no-cache build-base vips-dev python3 && \
 # 运行阶段
 FROM node:24.13.0-alpine
 WORKDIR /app
-RUN apk add --no-cache vips && \
-    addgroup -g 1000 node || true && \
-    adduser -u 1000 -G node -s /bin/sh -D node || true
+RUN apk add --no-cache vips vips-cpp
 COPY --from=build /app/node_modules ./node_modules
 COPY --chown=node:node . .
 USER node
